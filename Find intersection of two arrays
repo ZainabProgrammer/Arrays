@@ -1,0 +1,22 @@
+QUESTION:
+Given two integer arrays nums1 and nums2, return an array of their intersection.
+Each element in the result must be unique and you may return the result in any order.
+SOLUTION:
+----------------Using Set---------------
+
+var intersection = function(nums1, nums2) {
+  let ans=[];
+  let unique=new Set();
+
+for(let num of nums1){
+unique.add(num);
+}
+for(let num of nums2){
+    if(unique.has(num)){
+        ans.push(num);
+        unique.delete(num);
+    }
+}
+   return ans; 
+
+};

@@ -1,0 +1,19 @@
+
+---------------Two pointer approach------------
+
+var moveZeroes = function(nums) {
+ 
+let j = 0;
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            // Swap non-zero element with element at index j so that elements at j are non-zero only and at left most position.
+            let temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            
+            j++;
+        }
+    }
+
+};

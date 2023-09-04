@@ -1,0 +1,76 @@
+My code:
+
+Time complexity: O(n^2);
+
+function miniMaxSum(arr) {
+let ans=0;
+let result=[];
+let n=0;
+
+for(let i=0; i<arr.length; i++){
+   let removed= arr.splice(n,1);
+  let ans=arr.reduce((prev,current)=>{
+      return prev+current;
+  })
+result.push(ans);
+arr.push(...removed);   // here without rest operator you get the array so to get only alements we use this.
+
+}
+   n++;
+
+  let maxSum=Math.max(...result);    // only writing result here mean the last result got which is probably 10 so we take all values of sum from result.
+    let minSum=Math.min(...result);
+    console.log(minSum,maxSum)  ;
+}
+Approach was to remove the element at current index n and calculating sum and storing it inside result array. 
+Then pushing the removed element in the array and updating the index to n++ and so on.....
+
+------------------------Improved complexity: O(n)--------------------
+
+let minSum = Infinity; // Initialize to positive infinity
+let maxSum = -Infinity; // Initialize to negative infinity
+
+let totalSum = arr.reduce((prev, current) => prev + current, 0); // Calculate the total sum = 1 + 2 + 3 + 4 + 5 = 15
+
+// Loop through the array
+for (let i = 0; i < arr.length; i++) {
+    let sumWithoutElement = totalSum - arr[i]; // Calculate sum without the current element
+
+    // Update minSum and maxSum
+    minSum = Math.min(minSum, sumWithoutElement);
+    maxSum = Math.max(maxSum, sumWithoutElement);
+    
+
+}
+
+console.log(minSum); // Output: 10 (Minimum sum of four out of five numbers)
+console.log(maxSum); // Output: 14 (Maximum sum of four out of five numbers)
+
+
+--------------------Dry running of above approach--------------------
+
+    // Iteration 1 (i=0): Removing 1 from the array
+    // sumWithoutElement = 15 - 1 = 14
+    // minSum is updated to 14 (Math.min(Infinity, 14) = 14)
+    // maxSum is updated to 14 (Math.max(-Infinity, 14) = 14)
+
+    // Iteration 2 (i=1): Removing 2 from the array
+    // sumWithoutElement = 15 - 2 = 13
+    // minSum remains 14 (Math.min(14, 13) = 13)
+    // maxSum is updated to 14 (Math.max(14, 13) = 14)
+
+    // Iteration 3 (i=2): Removing 3 from the array
+    // sumWithoutElement = 15 - 3 = 12
+    // minSum remains 13 (Math.min(13, 12) = 12)
+    // maxSum is updated to 14 (Math.max(14, 12) = 14)
+
+    // Iteration 4 (i=3): Removing 4 from the array
+    // sumWithoutElement = 15 - 4 = 11
+    // minSum remains 12 (Math.min(12, 11) = 11)
+    // maxSum is updated to 14 (Math.max(14, 11) = 14)
+
+    // Iteration 5 (i=4): Removing 5 from the array
+    // sumWithoutElement = 15 - 5 = 10
+    // minSum remains 11 (Math.min(11, 10) = 10)
+    // maxSum is updated to 14 (Math.max(14, 10) = 14)
+

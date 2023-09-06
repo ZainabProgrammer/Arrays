@@ -1,0 +1,26 @@
+------------------Time complexity:O(n)---------------
+
+Question was to start from the last of array and compare last value to each prev item in array if the current element is larger than that last value,
+then copy value at current index at last index and so on .... else if the last element's value is greater than prev element then copy value of last element at that index and print array.
+
+function insertionSort1(n, arr) {
+    // Write your code here
+      let val=arr[n-1];     //   last element stored in val;
+
+    for(let i=n-1; i>=0; i-- ){    // iterating from last till first
+      
+        if(val<arr[i-1]){
+          arr[i]=arr[i-1];
+          console.log(arr.join(" "));   // ans was required to convert in string separated by space.
+         }
+         
+        else{
+            arr[i]=val;
+              console.log(arr.join(" ")); 
+              return;    // here return means stop now do not check furthur we are met with our solution..
+        }
+        
+    }
+ 
+
+}

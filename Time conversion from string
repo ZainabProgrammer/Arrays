@@ -1,0 +1,28 @@
+---------------Time complexity O(1)--------------
+This is because the number of operations performed by the function does not depend on the size of the input (the length of the time string s.
+
+function timeConversion(s) {
+    // Write your code here
+
+  let hours=parseInt(s.slice(0,2));    // here parseInt is used to convert the string to number so that addtion work properly.
+
+  let minutes=s.slice(3,5);
+
+  let seconds=s.slice(6,8);
+
+  let perios=s.slice(8,10);
+
+  
+  if(perios==='PM' && hours<12){       // in case of pm time then add hours to 12;
+      hours+=12;
+    
+  }else if(hours===12 && perios==='AM'){    // if it is am so the time less than 12 should be seen as it is.
+      hours=0;
+  }
+const formattedHours = String(hours).padStart(2, "0");   // in case of the time is less than 10 so it would not add pre 0 with it so we added it since it will keep the length same.
+
+let result=`${formattedHours}:${minutes}:${seconds}`;
+return result;
+
+
+}

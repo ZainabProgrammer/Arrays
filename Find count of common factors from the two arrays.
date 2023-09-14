@@ -1,0 +1,24 @@
+
+
+
+function getTotalX(a, b) {
+    let count=0;
+let maxFromA=Math.max(...a);
+let minFromB=Math.min(...b);
+for(let i=maxFromA; i<=minFromB; i++){
+      if(b.every(ele=>ele%i===0)){
+          if(a.every(ele=>i%ele===0)){
+   count++
+    }
+    }
+}
+return count;
+}
+-----Sample example-------
+
+const arr1 = [2, 4];
+const arr2 = [16, 32, 96];
+max from arr1 ===4
+min from arr2 ===16
+so we loop from 4 to 16 and start incrementing the value from 4 to 5 to 6 upto 16 and not greater than 16.
+First we check through arry2 and then arr1 if current element is divisible by array2 and factor of arr1 then we increment the count and return it.

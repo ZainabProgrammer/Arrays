@@ -1,0 +1,29 @@
+
+
+function breakingRecords(scores) {
+    let maxCount = scores[0];
+    let minCount = scores[0];
+    let countMax = 0; 
+    let countMin = 0;
+
+    for (let i = 1; i < scores.length; i++) {
+        if (scores[i] > maxCount) {
+            countMax++;
+            maxCount = scores[i];
+        } else if (scores[i] < minCount) {
+            countMin++;
+            minCount = scores[i];
+        }
+    }
+
+    return [countMax, countMin];
+}
+
+---------Sample Example--------
+
+const scores = [10, 5, 20, 20, 4, 5, 2, 25, 1];
+
+initially maxCount is 10 and minCount is also 10 stored in array;
+moving to element 10 which is equal so loop return and move to element 5 which is less than maxCount mean it is min count so we incremented countMin to 1;
+Next element is 20 which is greater than maxCount so it would increment countMax to 1 and so on. finally returning array of countMax and countMin respectively.
+

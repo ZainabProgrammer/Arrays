@@ -1,0 +1,22 @@
+
+
+function pageCount(n, p) {
+
+     // Calculate the number of pages from the front to reach page p
+      const fromFront = Math.floor(p / 2);
+
+  // Calculate the number of pages from the back to reach page p
+    const fromBack = Math.floor(n / 2) - Math.floor(p / 2)
+
+  // Return the minimum of the two values
+  return Math.min(fromFront, fromBack);
+  
+}
+
+------Sample Example--------
+
+const n = 6; 
+const p = 5;
+from front----> 5/2===2
+from back -----> 6/2-5/2===3-2====1
+Math.min(front,back)====1

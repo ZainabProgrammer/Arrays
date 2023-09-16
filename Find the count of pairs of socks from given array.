@@ -1,0 +1,36 @@
+
+-------Time complexity O(n)---------
+
+function sockMerchant(n, ar) {
+
+let colorCount=new Map();
+    let pairs=0;
+
+for(let i=0; i<n; i++){
+    if(colorCount.has(ar[i])){
+        colorCount.set(ar[i],colorCount.get(ar[i])+1);
+    }else{
+    colorCount.set(ar[i],1);
+    }   
+}
+//  to get pairs out of total count of socks
+
+for(const color of colorCount.values()){
+    pairs+=Math.floor(color/2);
+}
+return pairs;
+}
+
+------Sample Example--------
+
+const ar = [10, 20, 20, 10, 10, 30, 50, 10, 20];
+filling of map would be like this for first two elements then value of key 20 for next element update to 2 and so on...:
+|---------------------|
+|   Key   |   Value  |
+|---------------------|
+|   10    |    1     |
+|---------------------|
+|   20    |    1     |
+|---------------------|
+
+After storing key value pairs for socks we iterated over each value from this map using for(const color of colorCount.values()) and then we got pairs by dividing values by 2 and returned pairs;

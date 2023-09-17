@@ -1,0 +1,36 @@
+
+
+
+function getMoneySpent(keyboards, drives, b) {
+
+    let max=-1;
+    for(let i=0 ; i<keyboards.length; i++){
+        for(let j=0; j<drives.length; j++){
+            if(keyboards[i]+drives[j]>max && keyboards[i]+drives[j]<=b){
+               max=keyboards[i]+drives[j]; 
+            }
+             
+        }
+    
+    }
+    return max;
+
+}
+
+-------Sample Example-------
+
+const keyboards = [40, 50, 60];
+const drives = [5, 8, 12];
+const budget = 60;
+
+Dry run:
+---For i=0;-----   
+40+5=45 .... j=0     40+8=48 .... j=1      40+12=52 .... j=2
+---For i=1------
+50+5=55......j=0     50+8=58 ....j=1       50+12=62....j=2
+----For i=2 ----
+60+5=65 ....j=0      60+8=68 ....j=1      60+12=72 ....j=2
+
+so, 58 would be returned in this case.
+
+

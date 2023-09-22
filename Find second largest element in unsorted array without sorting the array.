@@ -1,0 +1,44 @@
+----------Time complexity O(n)-----------
+
+function secondLargest(arr){
+let largest=-1;
+let second=-1;
+
+//Loop through the array to get largest element from the array.
+for(let i=0; i<arr.length; i++){
+if(arr[i]>largest){
+largest=arr[i];
+
+}
+
+// Loop through the array to get secondLargest element from array.
+
+for(let j=0; j<arr.length; j++){
+if(arr[j]>second && arr[j]<largest){
+second=arr[j]
+
+}
+
+}
+return second;
+
+}
+
+---sample example-----
+const arr=[2,3,6,9,8,10,10]
+Iteration#1
+2>-1 true ----  largest=2;
+Iteration#2
+3<largest__2 ....no changes
+Iteration#3
+6>2 so, largest update----6
+and so on till 10 is found;
+Now for second loop:
+
+Iteration#1
+2>second and also less than largest 10, so second update to 2;
+Iteration#2
+3>second and also less than largest 10, so second update to 3;
+and so on till 9 is found and after that 10 which is not meeting the criteria so, we are left with 9 which is our 2nd largest element from array.
+
+

@@ -1,0 +1,26 @@
+-----------Time complexity O(n)------------
+
+-----(Two pointer approach)-----
+
+function maxMin(arr){
+let length=arr.length;
+let i=0;
+let j=length-1;
+let ans=[];
+
+while(i<=j){
+    ans.push(arr[j]);
+    j--;
+    ans.push(arr[i]);
+    i++;
+}
+let set= new Set(ans);
+return [...set];
+}
+
+maxMin([1,2,3,4,5,6,7])
+
+-------Output------
+
+
+[7,1,6,2,5,3,4]

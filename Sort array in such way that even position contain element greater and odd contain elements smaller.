@@ -1,0 +1,40 @@
+-------Time complexity  O(n)--------
+
+function evenOdd(arr){
+    let length=arr.length;
+
+
+    for(let i=1; i<=length; i++){
+
+ if(i%2==0 ){
+     if(arr[i-1]>arr[i]){
+       let temp=arr[i-1]
+    arr[i-1]=arr[i]
+  arr[i]=temp;  
+     }
+
+ }
+ else{
+     if(arr[i]<arr[i-1]){
+         let temp=arr[i-1];
+         arr[i-1]=arr[i];
+         arr[i]=temp;
+     }
+ }
+ 
+        
+    }
+    return arr;
+}
+---------Sample Example----------
+
+[1,2,2,1]
+Iteration #1:
+i=1 and i-1=0 1 is odd and conditions will be checked accordingly
+Iteration #2:
+i=2 which is even and prev element is greater than current no so no changes
+Iteration #3:
+i=3 which is odd and prev element is not greater so no change
+Iteration #4:
+i=4 which is even and prev element is greater so swapped 
+

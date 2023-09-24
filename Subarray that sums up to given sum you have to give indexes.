@@ -1,0 +1,34 @@
+---------Time complexity O(n)----------
+Sliding window approach
+
+function subarraySum(arr, n, s) {
+    
+   let start=0;
+   let i=0;
+   let currentsum=arr[0]; ///mistake 1
+   for(let i=1; i<=n; i++){
+       while(currentsum>s && start<i-1){
+           currentsum-=arr[start];
+           start++;
+       }
+       if(currentsum===s){
+           console.log(`index found from ${start} to ${i-1} `)
+           return;
+       }
+        if(i<n){ ///mistake 2
+       currentsum+=arr[i]
+   }
+   }
+  
+   console.log('not found')
+}
+   
+
+// Example usage
+subarraySum([1, 2, 3, 4, 5, 6, 7, 8], 8, 15);
+
+Approach:
+
+we equate first element to current sum and started adding elements to it when our sum become greater than target
+we start deleting the elements while the sum is become greater and moving our start position next and next.
+when we find the sum equal we return indexes from start to i-1 since we used 1-based indexing.

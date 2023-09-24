@@ -1,0 +1,22 @@
+------------Time complexity O(n)---------
+
+
+function findSingle(arr){
+    
+    let res=arr[0];
+    for(let i=1;i<arr.length; i++){
+        res=res^arr[i];
+    }
+    
+   return res; 
+}
+
+findSingle([2,2,3,4,5,5,4]);
+
+Approach:
+We take first element and xor it with all other elements in array because:
+xor of element with itself gives 0
+xor of element with 0 returns element itself.
+
+So, xor of elements which occur more than once mean it will xor to give zero
+and xor of element with 0 is element which means it occur once, which is our answer.

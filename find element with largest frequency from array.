@@ -1,0 +1,40 @@
+------space and time complexity: O(n)---------
+
+function find(arr){
+let maxFrequency=0;
+let map=new Map();
+for(let i=0; i<arr.length; i++)
+{
+  if(map.has(arr[i])){
+    map.set(arr[i],map.get(arr[i])+1);
+  }else{
+    map.set(arr[i],1);
+  }
+    if (map.get(arr[i]) > maxFrequency) {
+            maxFrequency = map.get(arr[i]);
+        }
+}
+for(const [elem,count] of map){
+if(maxFrequency===count){
+ console.log(`elem:${elem} and count: ${count}`); 
+}
+
+}
+}
+  let arr=[1,2,3,4,5,4]
+console.log(find(arr))
+
+Approach:
+we declared a map initially;
+used for loop to iterate through the array's length and setting the count as value to element which are used as keys in map.
+if the element is already there in map then count increment to 1 else count become equal to 1;
+so, that's how map is set up.
+Now, we are checking if the maxFreq is less than element itself if that is the case, we will set max freq equal to that element;
+which means if there is an element there is map then:
+For arr[0], which is 1, it's not in the map yet, so set it in the map with a count of 1. Update maxFrequency to 1.
+For arr[1], which is 2, it's not in the map yet, so set it in the map with a count of 1. maxFrequency remains 1.
+For arr[2], which is 3, it's not in the map yet, so set it in the map with a count of 1. maxFrequency remains 1.
+For arr[3], which is 4, it's not in the map yet, so set it in the map with a count of 1. maxFrequency remains 1.
+For arr[4], which is 5, it's not in the map yet, so set it in the map with a count of 1. maxFrequency remains 1.
+For arr[5], which is 4, it's already in the map with a count of 1, so increment its count to 2. maxFrequency becomes 2.
+and tht's how we tracked.

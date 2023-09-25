@@ -1,0 +1,20 @@
+-----Time complexity O(n)-------
+
+function discover(arr){
+    let ans=[];
+    let j=0;
+    for(let i=0; i<arr.length; i++){
+        if(i!==j){
+            ans.push(-1);
+
+        }else{
+            ans.push(i);
+        }
+    
+          j++ ;
+    }
+    return ans;
+}
+discover([19, 7, 0, 3, 18, 15, 12, 6, 1, 8, 11, 10, 9, 5, 13, 16, 2, 14, 17, 4]);
+
+But space complexity is O(n).
